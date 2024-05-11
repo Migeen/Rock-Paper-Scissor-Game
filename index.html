@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,22 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
     <h1>Rock Paper Scissor</h1>
+    <div class="img">
+        <img src="" id="image" alt="">
+    </div>
+    <div class="buttons">
+        <button id="rock" onclick="handleButtonClick('rock')">Rock</button>
+        <button id="paper"  onclick="handleButtonClick('paper')">Paper</button>
+        <button id="scissor"  onclick="handleButtonClick('scissor')">Scissor</button>
+    </div>
+
+    <div class="result">
+    </div>
+
     <script src="app.js"></script>
 </body>
+
 </html>
