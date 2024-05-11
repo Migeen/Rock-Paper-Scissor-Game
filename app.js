@@ -1,42 +1,86 @@
-let array = ['rock', 'paper', 'scissor'];
+let playerScore = 0;
+let computerScore = 0;
 
-const getComputerChoice = (arr) => {
-    return arr[Math.floor(Math.random() * arr.length)];
+// function to generate compter choice
+const getComputerChoice = () => {
+    let array = ['rock', 'paper', 'scissor'];
+    return array[Math.floor(Math.random() * array.length)];
 };
 
-function playRound(playerSelection, computerSelection){
+//function to determine winner
+function playRound(playerSelection,computerSelection){
     
-    playerSelection = playerSelection.toLowerCase();
-
     if(playerSelection === computerSelection){
         return 'It\'s a tie!';
-    }else if(playerSelection === 'rock' && computerSelection === 'paper'){
-        return 'You lose! Paper beats Rock';
-    }else if (playerSelection === 'rock' && computerSelection === 'scissor'){
-        return 'You win! Rock beats Scissor';
-    }else if (playerSelection === 'paper' && computerSelection === 'rock'){
-        return 'You win! Paper beats Rock';
-    }else if (playerSelection === 'paper' && computerSelection === 'scissor'){
-        return 'You lose! Scissor beats Paper';
-    } else if (playerSelection === 'scissor' && computerSelection === 'rock'){
-        return 'You lose! Rock beats Scissor';
-    }else if (playerSelection === 'scissor' && computerSelection === 'paper'){
-        return 'You win! Scissor beats Paper';
-    }else {
-        return 'Invalid input';
+    }else if((playerSelection === 'rock' && computerSelection === 'scissor') || (playerSelection === 'paper' && computerSelection === 'rock') || (playerSelection === 'scissor' && computerSelection === 'paper')){
+        playerScore++;
+        return 'You win! ' + playerSelection + ' beats ' + computerSelection;
+    }
+    else{
+        computerScore++;
+        return 'You lose! ' + computerSelection + ' beats ' + playerSelection;
+    }
+}
+//function to display score and check winner
+function displayScoreAndCheckWinner(result){
+    const resultDiv = document.querySelector('.result');
+    resultDiv.innerHTML = result+
+    '<br>player: ' + playerScore + ' computer: ' + computerScore;
+    if(playerScore==5){
+        resultDiv.innerText = 'Hurray!! you won the game!';
+        playerScore = 0;
+        computerScore = 0;
+    }else if(computerScore==5){
+        resultDiv.innerText = 'Computer wins the game!';
+        playerScore = 0;
+        computerScore = 0;
     }
 }
 
-const playerSelection = 'scissor';
-const computerSelection = getComputerChoice(array);
-console.log(playRound(playerSelection, computerSelection));
+//function to handle button click
 
-const playGame = () => {
-    for(let i = 0; i < 5; i++){
-        const playerSelection = prompt('Enter your choice: rock, paper or scissor');
-        const computerSelection = getComputerChoice(array);
-        console.log(playRound(playerSelection, computerSelection));
-    }
+function handleButtonClick(playerSelection){
+
+    const computerSelection = getComputerChoice();
+    const result = playRound(playerSelection, computerSelection);
+    clearInterval(a);
+    displayScoreAndCheckWinner(result);
+    a = setInterval(function() {
+        const image = document.getElementById('image');
+        var filename = [
+                'Rock.png',
+                'paper.png',
+                'scissor.png'
+        
+        ]
+        if(randomIndex>2){
+            randomIndex=0;
+        }
+        image.src = filename[randomIndex];
+        randomIndex++;
+    },1000);
+
 }
 
-playGame();
+var randomIndex = 0;
+let a = setInterval(function() {
+
+    const image = document.getElementById('image');
+
+    var filename = [
+            'Rock.png',
+            'paper.png',
+            'scissor.png'
+    
+    ]
+
+    if(randomIndex>2){
+        randomIndex=0;
+    }
+
+
+    image.src = filename[randomIndex];
+    randomIndex++;
+}, 1000);
+
+const buttons = document.querySelectorAll('button');

@@ -1,0 +1,96 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+
+}
+
+h1{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 4rem;
+}
+
+.img{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.img img{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap : 20px;
+}
+
+.buttons #rock{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f35886;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.buttons #paper{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #7069d3;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.buttons #scissor{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #7e93ec;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.buttons #rock:hover{
+    background-color: #db4673;
+    color: white;
+}
+
+.buttons #paper:hover{
+    background-color: #5148c2;
+    color: white;
+}
+
+.buttons #scissor:hover{
+    background-color: #5c7be6;
+    color: white;
+}
+
+.result{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+    width: auto;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #221c77;
+    /* border: 1px solid #7776765e; */
+}
+
