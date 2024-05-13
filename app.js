@@ -58,7 +58,7 @@ function handleButtonClick(playerSelection){
         }
         image.src = filename[randomIndex];
         randomIndex++;
-    },1000);
+    },300);
 
 }
 
@@ -81,6 +81,6 @@ let a = setInterval(function() {
 
     image.src = filename[randomIndex];
     randomIndex++;
-}, 1000);
+}, 300);
 
 const buttons = document.querySelectorAll('button');
