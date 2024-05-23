@@ -82,5 +82,3 @@ let a = setInterval(function() {
     image.src = filename[randomIndex];
     randomIndex++;
 }, 300);
-
-const buttons = document.querySelectorAll('button');
